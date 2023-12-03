@@ -51,6 +51,9 @@ resource "google_storage_bucket" "tbd-data-bucket" {
   force_destroy               = true
   public_access_prevention    = "enforced"
   # Add other properties if needed to handle errors from checkcov
+    versioning {
+    enabled = true
+  }
 }
 
 resource "google_storage_bucket_iam_member" "tbd-data-bucket-iam-editor" {
