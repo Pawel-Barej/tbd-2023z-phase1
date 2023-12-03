@@ -6,21 +6,21 @@ locals {
 }
 
 
-resource "google_storage_bucket" "tbd-code-bucket" {
-  project                     = var.project_name
-  name                        = var.bucket_name
-  location                    = var.region
-  uniform_bucket_level_access = false #tfsec:ignore:google-storage-enable-ubla
-  force_destroy               = true
-  versioning {
-    enabled = true
-  }
+# resource "google_storage_bucket" "tbd-code-bucket" {
+#   project                     = var.project_name
+#   name                        = var.bucket_name
+#   location                    = var.region
+#   uniform_bucket_level_access = false #tfsec:ignore:google-storage-enable-ubla
+#   force_destroy               = true
+#   versioning {
+#     enabled = true
+#   }
 
-  #checkov:skip=CKV_GCP_62: "Bucket should log access"
-  #checkov:skip=CKV_GCP_29: "Ensure that Cloud Storage buckets have uniform bucket-level access enabled"
-  #checkov:skip=CKV_GCP_78: "Ensure Cloud storage has versioning enabled"
-  public_access_prevention = "enforced"
-}
+#   #checkov:skip=CKV_GCP_62: "Bucket should log access"
+#   #checkov:skip=CKV_GCP_29: "Ensure that Cloud Storage buckets have uniform bucket-level access enabled"
+#   #checkov:skip=CKV_GCP_78: "Ensure Cloud storage has versioning enabled"
+#   public_access_prevention = "enforced"
+# }
 
 resource "google_storage_bucket_iam_member" "tbd-code-bucket-iam-viewer" {
   bucket = google_storage_bucket.tbd-code-bucket.name
