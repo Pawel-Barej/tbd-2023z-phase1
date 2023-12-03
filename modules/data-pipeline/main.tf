@@ -43,18 +43,18 @@ resource "google_storage_bucket_object" "dag-code" {
   source   = "${path.module}/resources/${each.value}"
 }
 
-# resource "google_storage_bucket" "tbd-data-bucket" {
-#   project                     = var.project_name
-#   name                        = var.bucket_name
-#   location                    = var.region
-#   uniform_bucket_level_access = false #tfsec:ignore:google-storage-enable-ubla
-#   force_destroy               = true
-#   public_access_prevention    = "enforced"
-#   # Add other properties if needed to handle errors from checkcov
-# }
+resource "google_storage_bucket" "tbd-data-bucket" {
+  project                     = var.project_name
+  name                        = var.data_bucket_name
+  location                    = var.region
+  uniform_bucket_level_access = false #tfsec:ignore:google-storage-enable-ubla
+  force_destroy               = true
+  public_access_prevention    = "enforced"
+  # Add other properties if needed to handle errors from checkcov
+}
 
-# resource "google_storage_bucket_iam_member" "tbd-data-bucket-iam-editor" {
-#   bucket = google_storage_bucket.tbd-data-bucket.name
-#   role   = "roles/storage.objectUser"
-#   member = "serviceAccount:${var.data_service_account}"
-# }
+resource "google_storage_bucket_iam_member" "tbd-data-bucket-iam-editor" {
+  bucket = google_storage_bucket.tbd-data-bucket.name
+  role   = "roles/storage.objectUser"
+  member = "serviceAccount:${var.data_service_account}"
+}
