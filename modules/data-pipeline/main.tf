@@ -44,7 +44,7 @@ resource "google_storage_bucket_object" "dag-code" {
 }
 
 resource "google_storage_bucket" "tbd-data-bucket" {
-  project                     = var.project.name
+  project                     = var.project_name
   name                        = var.bucket_name
   location                    = var.region
   uniform_bucket_level_access = false #tfsec:ignore:google-storage-enable-ubla
