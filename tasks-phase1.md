@@ -64,11 +64,18 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 
     ***describe one selected module and put the output of terraform graph for this module here***
    
-7. Reach YARN UI
+       Nie jesteśmy pewni czy to jest poprawny graph ponieważ np wygenerowanie go dla modułu vpc jest on natyle ogromny że traci
+       czytelność natomiast dla cicd_bootstrap jest dużo mniejszy i bardziej czytelny. Zawiera on w czytelny sposób zalezności pomiedzy
+       resource co było wymagane         w tym podpunkcie.
+![6](https://github.com/Pawel-Barej/tbd-2023z-phase1/assets/89931555/68f68ca1-8ba4-464c-bae9-3901b123a9fa)
+
+   
+   
+8. Reach YARN UI
    
    ***place the port and the screenshot of YARN UI here***
    
-8. Draw an architecture diagram (e.g. in draw.io) that includes:
+9. Draw an architecture diagram (e.g. in draw.io) that includes:
     1. VPC topology with service assignment to subnets
     2. Description of the components of service accounts
     3. List of buckets for disposal
@@ -76,13 +83,13 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
   
     ***place your diagram here***
 
-9. Add costs by entering the expected consumption into Infracost
+10. Add costs by entering the expected consumption into Infracost
 
    ***place the expected consumption you entered here***
 
    ***place the screenshot from infracost output here***
 
-10. Some resources are not supported by infracost yet. Estimate manually total costs of infrastructure based on pricing costs for region used in the project. Include costs of cloud composer, dataproc and AI vertex workbanch and them to infracost estimation.
+11. Some resources are not supported by infracost yet. Estimate manually total costs of infrastructure based on pricing costs for region used in the project. Include costs of cloud composer, dataproc and AI vertex workbanch and them to infracost estimation.
 
     ***place your estimation and references here***
 
