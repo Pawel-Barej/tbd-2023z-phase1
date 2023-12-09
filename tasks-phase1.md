@@ -64,10 +64,16 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 
     ***describe one selected module and put the output of terraform graph for this module here***
    
-       Nie jesteśmy pewni czy to jest poprawny graph ponieważ np wygenerowanie go dla modułu vpc jest on natyle ogromny że traci
-       czytelność natomiast dla cicd_bootstrap jest dużo mniejszy i bardziej czytelny. Zawiera on w czytelny sposób zalezności pomiedzy
-       resource co było wymagane         w tym podpunkcie.
-![6](https://github.com/Pawel-Barej/tbd-2023z-phase1/assets/89931555/68f68ca1-8ba4-464c-bae9-3901b123a9fa)
+       Wybralismy moduł dataproc ze względu na wielkość grafu. Dla innych modułów ilośc zalezności przykrywała jego czytelność.
+       Kilka słów omówienie:
+       Usługa Dataproc jest włączona dla określonego projektu Google Cloud (var.project_name). Wykorzystuje dostawcę google i docelowo usługę dataproc.googleapis.com.
+       Ten zasób definiuje klaster Dataproc o nazwie "tbd-cluster" w określonym projekcie GCP i regionie (var.project_name i var.region odpowiednio). Zależy od udanego utworzenia usługi Dataproc (google_project_service.dataproc).
+        W bloku cluster_config znajdują się konfiguracje klastra Dataproc:
+       Określam wersję obrazu Dataproc do użycia. Wykorzystuje wartość określoną w zmiennej var.image_version.
+        Konfiguruje ustawienia Google Compute Engine (GCE) dla klastra. Ustawia podsieć, zezwala tylko na wewnętrzne adresy IP var.subnet
+       
+      ![6](https://github.com/Pawel-Barej/tbd-2023z-phase1/assets/89931555/13f909d7-ec70-425d-ac9e-6a9c8b6498eb)
+
 
    
    
@@ -78,12 +84,30 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 9. Draw an architecture diagram (e.g. in draw.io) that includes:
     1. VPC topology with service assignment to subnets
     2. Description of the components of service accounts
+
+            Composer - w pełni zarządzana usługa orkiestracji przepływu pracy oparta na Apache Airflow, która pomaga tworzyć, planować i monitorować pipelines obejmujące środowiska hybrydowe i wielochmurowe.
+            vpc - Prywatne środowisko wirtualne w chmurze (VPC) Google Cloud Platform (GCP) zapewnia obsługę sieci w zasobach, takich jak instancje maszyn wirtualnych Compute Engine, kontenery Kubernetes Engine czy elastyczne środowisko App Engine.
+            Dataproc - Dataproc to w pełni zarządzana i wysoce skalowalna usługa do uruchamiania Apache Hadoop, Apache Spark, Apache Flink, Presto oraz ponad 30 narzędzi i frameworków open source
+            Artifical registry - Rejestr kontenerów nowej generacji. Przechowuje, zarządza i zabezpiecza artefakty kompilacji.
+            cloud storage - Cloud Storage to zarządzana usługa przechowywania nieustrukturyzowanych danych.
+            IAM - Zarządzanie tożsamością i dostępem (IAM) pozwala administratorom autoryzować, kto może podejmować działania na określonych zasobach, zapewniając pełną kontrolę i widoczność w celu centralnego zarządzania zasobami Google Cloud.
+       
     3. List of buckets for disposal
+       
+            tbd-2023z-30047812-code    
+            tbd-2023z-30047812-conf    
+            tbd-2023z-30047812-data    
+            tbd-2023z-30047812-state
+       
     4. Description of network communication (ports, why it is necessary to specify the host for the driver) of Apache Spark running from Vertex AI Workbech
+
   
     ***place your diagram here***
+   
+   ![9](https://github.com/Pawel-Barej/tbd-2023z-phase1/assets/89931555/6ee2f712-e062-4673-8f3d-b893e0d7cb11)
 
-10. Add costs by entering the expected consumption into Infracost
+
+11. Add costs by entering the expected consumption into Infracost
 
    ***place the expected consumption you entered here***
 
