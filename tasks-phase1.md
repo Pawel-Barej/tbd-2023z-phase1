@@ -109,31 +109,44 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 
 11. Add costs by entering the expected consumption into Infracost
 
-   ***place the expected consumption you entered here***
+         Niestety nie udało nm się wygenerować pełnego pliku infracost ale widzimy w poniższym obrazku koszt dla poszczególnych elementów infrastruktóry.
+         
+   ![image](https://github.com/Pawel-Barej/tbd-2023z-phase1/assets/89931555/3ae995f5-b689-4256-920c-f67617c7a3cb)
 
-   ***place the screenshot from infracost output here***
 
 11. Some resources are not supported by infracost yet. Estimate manually total costs of infrastructure based on pricing costs for region used in the project. Include costs of cloud composer, dataproc and AI vertex workbanch and them to infracost estimation.
 
-    ***place your estimation and references here***
+        Composer
 
-    ***what are the options for cost optimization?***
-    
-12. Create a BigQuery dataset and an external table
-    
-    ***place the code and output here***
-   
-    ***why does ORC not require a table schema?***
+    ![image](https://github.com/Pawel-Barej/tbd-2023z-phase1/assets/89931555/7ecb280c-11b6-4af1-8325-b7d1718d94b3)
+
+        Dataproc
+
+    ![image](https://github.com/Pawel-Barej/tbd-2023z-phase1/assets/89931555/3cdec0f8-d142-4ebe-8722-e705c6e2ec55)
+
+        AI vertex workbanch
+
+    ![image](https://github.com/Pawel-Barej/tbd-2023z-phase1/assets/89931555/e24a4ceb-f35d-4661-a645-6bd639fe5115)
+
   
-13. Start an interactive session from Vertex AI workbench (steps 7-9 in README):
+13. Create a BigQuery dataset and an external table
+    
+          Dodaliśmy tabelę ręcznie
+    ![image](https://github.com/Pawel-Barej/tbd-2023z-phase1/assets/89931555/d066dc47-3818-466c-965a-0e718acfc0f7)
 
-    ***place the screenshot of notebook here***
+  
+15. Start an interactive session from Vertex AI workbench (steps 7-9 in README):
+
+
+          Dostaliśmy dokładnie tak samo jak w readme
+    ![image](https://github.com/Pawel-Barej/tbd-2023z-phase1/assets/89931555/a2aeb39c-76e0-4d97-8cd5-1d0caebd2fb8)
+
    
-14. Find and correct the error in spark-job.py
+16. Find and correct the error in spark-job.py
 
-    ***describe the cause and how to find the error***
+        Powodem była zmiana lokalizacji bucketu
 
-15. Additional tasks using Terraform:
+17. Additional tasks using Terraform:
 
     1. Add support for arbitrary machine types and worker nodes for a Dataproc cluster and JupyterLab instance
 
