@@ -78,7 +78,7 @@ module "dataproc" {
 
 module "composer" {
   depends_on     = [module.vpc]
-  source         = "github.com/bdg-tbd/tbd-workshop-1.git?ref=v1.0.36/modules/composer"
+  source         = "./modules/composer"
   project_name   = var.project_name
   network        = module.vpc.network.network_name
   subnet_address = local.composer_subnet_address
@@ -113,8 +113,6 @@ module "data-pipelines" {
   dag_bucket_name      = module.composer.gcs_bucket
   data_bucket_name     = local.data_bucket_name
 }
-
-
 
 
 resource "kubernetes_service" "dbt-task-service" {
