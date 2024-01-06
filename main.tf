@@ -78,7 +78,7 @@ module "dataproc" {
 
 module "composer" {
   depends_on     = [module.vpc]
-  source         = "./modules/composer"
+  source         = "github.com/bdg-tbd/tbd-workshop-1.git?ref=v1.0.36/modules/composer"
   project_name   = var.project_name
   network        = module.vpc.network.network_name
   subnet_address = local.composer_subnet_address
